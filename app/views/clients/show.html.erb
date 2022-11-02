@@ -1,0 +1,56 @@
+    <%= render "layouts/header" %>  
+
+<h3 class="center"> FOLLOWING ARE THE DETAILS OF CLIENT "<%= @client.company_name %>"</h3>
+
+<div class='main-centre tableFixHead'>
+    <table class="center">
+      <thead>
+        <tr>
+            <th>DESCRIPTION</th>
+            <th>VALUE</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>COMPANY NAME:</td>
+            <td><%= @client.company_name %></td>
+          </tr>
+          <tr>
+            <td>CONTACT PERSON'S NAME:</td>
+            <td><%= @client.contact_person_name %></td>
+          </tr>
+          <tr>
+            <td>EMAIL:</td>
+            <td><%= @client.email %></td>
+          </tr>
+          <tr>
+            <td>ALTERNATE EMAIL:</td>
+            <td><%= @client.alternate_email %></td>
+          </tr>   
+          <tr>
+            <td>MOBILE NUMBER:</td>
+            <td><%= @client.mobile_number %></td>
+          </tr>   
+          <tr>
+            <td>PHONE NUMBER:</td>
+            <td><%= @client.phone_number %></td>
+          </tr>
+          <tr>
+            <td>POSTAL ADDRESS:</td>
+            <td><%= @client.postal_address %></td>
+          </tr>   
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+
+<table class="center">
+      <thead>
+        <tr>
+            <th><%= link_to "DELETE", @client, method: :delete, data: { confirm: "Really want to DELETE this client #{@client.to_s}?" } %></th>
+            <th><%= link_to "UPDATE", edit_client_path(@client) %></th>
+            <th><%= link_to "BACK", clients_path %></th>
+        </tr>
+      </thead>
+</table>

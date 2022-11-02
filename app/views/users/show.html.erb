@@ -1,0 +1,37 @@
+ <%= render "layouts/header" %>  
+
+<h3 class="center"> FOLLOWING ARE THE DETAILS OF USER "<%= @user.name %>"</h3>
+
+<div class='main-centre tableFixHead'>
+    <table class="center">
+      <thead>
+        <tr>
+            <th>DESCRIPTION</th>
+            <th>VALUE</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>USER UID:</td>
+            <td><%= @user.uid %></td>
+          </tr>
+          <tr>
+          <td>NAME OF USER:</td>
+          <td><%= @user.name %></td>
+          </tr>
+          <tr>
+          <td>USER's EMAIL ID:</td>
+          <td><%= @user.email %></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+  <table class="center">
+      <thead>
+        <tr>
+            <th><%= link_to "DELETE", @user, method: :delete, data: { confirm: "Really want to DELETE the #{@user.to_s}?" } %></th>
+        </tr>
+      </thead>
+</table>

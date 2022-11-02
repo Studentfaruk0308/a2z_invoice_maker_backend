@@ -1,0 +1,62 @@
+    <%= render "layouts/header" %>    
+  
+  <h1 class="center">All Clients</h1>
+
+  <% if Client.count < 1 %>
+      <p class="p1">No Client Data Available</p>
+      <p class="p1">Want to Create the First Client?</p>
+
+    <table class="center">
+          <thead>
+            <tr>
+              <th><%= link_to "+ Create a Client", new_client_path %></th>
+            </tr>
+          </thead>
+    </table>
+
+  <% else %>
+
+<table class="center">
+      <thead>
+        <tr>
+          <th><%= link_to "+ Create a Client", new_client_path %></th>
+        </tr>
+      </thead>
+</table>
+
+<br>
+
+  <div class='main-centre tableFixHead'>
+    <table class="center">
+      <thead>
+        <tr>
+            <th>CLIENT ID</th>
+            <th>COMPANY NAME</th>
+            <th>CONTACT PERSON'S NAME</th>
+            <th>EMAIL</th>
+            <th>ALTERNATE EMAIL</th>
+            <th>MOBILE</th> 
+            <th>PHONE NUMBER</th> 
+            <th>POSTAL ADDRESS</th>  
+            <th>DETAILS/UPDATE/DELETE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @clients.each do |c| %>
+          <tr>
+            <td><%= c.id %></td>
+            <td><%= c.company_name %></td>
+            <td><%= c.contact_person_name %></td>
+            <td><%= c.email %></td>
+            <td><%= c.alternate_email %></td>
+            <td><%= c.mobile_number %></td>
+            <td><%= c.phone_number %></td>
+            <td><%= c.postal_address %></td>
+            <td><%= link_to "DETAILS/UPDATE/DELETE", client_path(c) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+<% end %>

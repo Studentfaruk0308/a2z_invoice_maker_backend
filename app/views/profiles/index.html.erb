@@ -1,0 +1,62 @@
+    <%= render "layouts/header" %>    
+  
+  <h1 class="center">All Profiles</h1>
+
+  <% if Profile.count < 1 %>
+      <p class="p1">No Profile Data Available</p>
+      <p class="p1">Want to Create the First Profile?</p>
+
+    <table class="center">
+          <thead>
+            <tr>
+              <th><%= link_to "+ Create a Profile", new_profile_path %></th>
+            </tr>
+          </thead>
+    </table>
+
+  <% else %>
+
+
+  <div class='main-centre tableFixHead'>
+    <table class="center">
+      <thead>
+        <tr>
+            <th>PROFILE ID</th>
+            <th>PROFILE NAME</th>
+            <th>COMPANY NAME</th>
+            <th>ADDRESS</th>
+            <th>ABN</th>
+            <th>EMAIL</th> 
+            <th>CONTACT NUMBER</th> 
+            <th>BANK DETAILS</th>  
+            <th>DETAILS/UPDATE/DELETE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @profiles.each do |p| %>
+          <tr>
+            <td><%= p.id %></td>
+            <td><%= p.profile_name %></td>
+            <td><%= p.company_name %></td>
+            <td><%= p.address %></td>
+            <td><%= p.abn %></td>
+            <td><%= p.email %></td>
+            <td><%= p.contact_number %></td>
+            <td><%= p.bank_details %></td>
+            <td><%= link_to "DETAILS/UPDATE/DELETE", profile_path(p) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<br>
+<br>
+<table class="center">
+      <thead>
+        <tr>
+          <th><%= link_to "+ Create a Profile", new_profile_path %></th>
+        </tr>
+      </thead>
+</table>
+
+<% end %>

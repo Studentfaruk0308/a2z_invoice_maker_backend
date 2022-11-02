@@ -1,0 +1,85 @@
+    <%= render "layouts/header" %>  
+
+<h3 class="center"> FOLLOWING ARE THE DETAILS OF INVOICE "<%= @invoice.inv_number %>"</h3>
+
+<div class='main-centre tableFixHead'>
+    <table class="center">
+      <thead>
+        <tr>
+            <th>DESCRIPTION</th>
+            <th>VALUE</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>INVOICE NUMBER:</td>
+            <td><%= @invoice.inv_number %></td>
+          </tr>
+          <tr>
+            <td>CLIENT NAME:</td>
+            <td><%= @invoice.client_details %></td>
+          </tr>
+          <tr>
+            <td>DATE OF ISSUE:</td>
+            <td><%= @invoice.date_of_issue %></td>
+          </tr>
+          <tr>
+            <td>DUE DATE:</td>
+            <td><%= @invoice.due_date %></td>
+          </tr> 
+          <tr>
+            <td>JOB REFERENCE:</td>
+            <td><%= @invoice.job_reference %></td>
+          </tr> 
+          <tr>
+            <td>DESCRIPTION:</td>
+            <td><%= @invoice.description %></td>
+          </tr> 
+          <tr>
+            <td>QUANTITY:</td>
+            <td><%= @invoice.quantity %></td>
+          </tr> 
+          <tr>
+            <td>UNIT PRICE:</td>
+            <td><%= @invoice.unit_price %></td>
+          </tr> 
+          <tr>
+            <td>TAX:</td>
+            <td><%= @invoice.tax %></td>
+          </tr> 
+          <tr>
+            <td>AMOUNT:</td>
+            <td><%= @invoice.amount %></td>
+          </tr> 
+          <tr>
+            <td>TOTAL AMOUNT:</td>
+            <td><%= @invoice.total_amount %></td>
+          </tr>
+          <tr>
+            <td>PAID AMOUNT:</td>
+            <td><%= @invoice.paid %></td>
+          </tr>  
+          <tr>
+            <td>DUE AMOUNT:</td>
+            <td><%= @invoice.due_amount %></td>
+          </tr> 
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+
+<table class="center">
+      <thead>
+        <tr>
+            <th><%= link_to "DELETE", @invoice, method: :delete, data: { confirm: "Really want to DELETE this invoice #{@invoice.to_s}?" } %></th>
+            <th><%= link_to "UPDATE", edit_invoice_path(@invoice) %></th>
+            <th><%= link_to "BACK", invoices_path %></th>
+        </tr>
+      </thead>
+</table>
+
+
+
+
+   

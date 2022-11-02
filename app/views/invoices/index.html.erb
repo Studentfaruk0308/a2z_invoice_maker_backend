@@ -1,0 +1,74 @@
+    <%= render "layouts/header" %>    
+  
+  <h1 class="center">All Invoices</h1>
+
+  <% if Invoice.count <1 %>
+      <p class="p1">No Invoice Data Available</p>
+      <p class="p1">Want to Create the First Invoice?</p>
+
+    <table class="center">
+          <thead>
+            <tr>
+              <th><%= link_to "+ Create an Invoice", new_invoice_path %></th>
+            </tr>
+          </thead>
+    </table>
+
+  <% else %>
+
+  <div class='main-centre tableFixHead'>
+
+    <table class="center">
+      <thead>
+        <tr>
+            <th>INVOICE ID</th>
+            <th>INVOICE NUMBER</th>            
+            <th>CLIENT NAME</th>
+            <th>DATE OF ISSUE</th>
+            <th>DUE DATE</th>
+            <th>JOB REFERENCE</th>
+            <th>DESCRIPTION</th>
+            <th>QUANTITY</th> 
+            <th>UNITE PRICE</th> 
+            <th>TAX</th>  
+            <th>AMOUNT</th> 
+            <th>TOTAL AMOUNT</th>
+            <th>PAID</th>  
+            <th>DUE AMOUNT</th> 
+            <th>DETAILS/UPDATE/DELETE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @invoices.each do |i| %>
+          <tr>
+            <td><%= i.id %></td>
+            <td><%= i.inv_number %></td>
+            <td><%= i.client_details %></td>
+            <td><%= i.date_of_issue.strftime("%d %B %Y") %></td>
+            <td><%= i.due_date.strftime("%d %B %Y") %></td>
+            <td><%= i.job_reference %></td>
+            <td><%= i.description %></td>
+            <td><%= i.quantity %></td>
+            <td><%= i.unit_price %></td>
+            <td><%= i.tax %></td>
+            <td><%= i.amount %></td>
+            <td><%= i.total_amount %></td>
+            <td><%= i.paid %></td>
+            <td><%= i.due_amount %></td>
+            <td><%= link_to "DETAILS/UPDATE/DELETE", invoice_path(i) %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<br>
+<br>
+<table class="center">
+      <thead>
+        <tr>
+          <th><%= link_to "+ Create an Invoice", new_invoice_path %></th>
+        </tr>
+      </thead>
+</table>
+
+<% end %>

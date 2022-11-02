@@ -1,0 +1,28 @@
+<div class='authentication'>
+  <p>No authentication information is available!</p>
+  <p>Try one of the below Log In Method</p>
+  </div>
+
+<div class=login>
+
+<h1>LOGIN PAGE</h1>
+
+<%= form_with url: login_path do |f| %>
+<%= f.label :NAME %>
+<%= f.text_field :name %>
+<%= f.label :Email %>
+<%= f.text_field :email %>
+<%= f.label :Password %>
+<%= f.password_field :password %>
+<%= f.label :Password_Confirmation %>
+<%= f.password_field :password_confirmation %>
+
+<%= f.submit 'Login' %>
+<% end %>
+
+</div>
+<div id='github-options'>Try <%= link_to 'Signing in with the GitHub strategy', '/auth/github', method: :post %>.</div>
+
+<%# <div id='developer-options'>Try <%= link_to 'Signing in with the developer strategy', '/auth/developer', method: :post %></div>
+
+<div id='google-options'>Try <%= link_to 'Signing in with the Google strategy', '/auth/google_oauth2', method: :post %>.</div>

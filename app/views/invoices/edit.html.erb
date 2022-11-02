@@ -1,0 +1,67 @@
+    <%= render "layouts/header" %>  
+
+<div class="center">
+
+  <% if @invoice.errors.any? %>
+    <div id="error_explanation" class='validation'>
+      <h2>
+        <%= pluralize(@invoice.errors.count, "error") %>
+        prohibited updating of this Invoice:
+      </h2>
+
+      <ul>
+      <% @invoice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h1>Updating this INVOICE</h1>
+<%= form_for(@invoice) do |f| %>
+  <label>Invoice Number:</label><br>
+  <%= f.text_field :inv_number %><br>
+
+  <label>Client Name</label><br>
+  <%= f.collection_select :client, Client.all, :id, :client_name, { include_blank: false }, { class: "collectionselect" } %><br>
+
+  <label>Client ID</label><br>
+  <%= f.text_area :client_id %><br>
+
+  <label>Date of Issue</label><br>
+  <%= f.text_area :date_of_issue %><br>
+
+  <label>Due Date</label><br>
+  <%= f.text_area :due_date %><br>
+
+  <label>Job Reference</label><br>
+  <%= f.text_area :job_reference %><br>  
+
+  <label>Description</label><br>
+  <%= f.text_area :description %><br>
+
+  <label>Quantity</label><br>
+  <%= f.text_area :quantity %><br>
+
+  <label>Unit Price</label><br>
+  <%= f.text_area :unit_price %><br>
+
+  <label>Tax</label><br>
+  <%= f.text_area :tax %><br>
+
+  <label>Amount</label><br>
+  <%= f.text_area :amount %><br>
+
+  <label>Total Amount</label><br>
+  <%= f.text_area :total_amount %><br> 
+
+  <label>Paid</label><br>
+  <%= f.text_area :paid %><br>
+
+  <label>Due Amount</label><br>
+  <%= f.text_area :due_amount %><br>
+
+  <%= f.submit %>
+<% end %>
+
+</div>

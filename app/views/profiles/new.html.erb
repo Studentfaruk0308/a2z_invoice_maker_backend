@@ -1,0 +1,29 @@
+    <%= render "layouts/header" %>  
+<div class="center">
+<h1>Creating a New Profile</h1>
+  <%= form_for(@profile) do |f| %>
+  <label>Profile Name:</label><br>
+  <%= f.text_field :profile_name %><br>
+
+  <label>Company Name</label><br>
+  <%= f.text_area :company_name %><br>
+
+  <label>Address</label><br>
+  <%= f.text_area :address %><br> 
+
+  <label>ABN</label><br>
+  <%= f.text_area :abn %><br> 
+
+  <label>EMAIL</label><br>
+  <%= f.text_area :email %><br> 
+
+  <label>CONTACT NUMBER</label><br>
+  <%= f.text_area :contact_number %><br> 
+
+  <label>BANK DETAILS</label><br>
+  <%= f.text_area :bank_details %><br>
+
+  <%= f.submit %>
+<% end %>
+
+</div>

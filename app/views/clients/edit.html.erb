@@ -1,0 +1,31 @@
+    <%= render "layouts/header" %>  
+
+<div class="center">
+
+<h1>Updating a Client</h1>
+<%= form_for(@client) do |f| %>
+  <label>Company Name:</label><br>
+  <%= f.text_field :company_name %><br>
+
+  <label>Contact Person's Name</label><br>
+  <%= f.text_area :contact_person_name %><br>
+
+  <label>Email</label><br>
+  <%= f.text_area :email %><br> 
+
+  <label>Alternate Email</label><br>
+  <%= f.text_area :alternate_email %><br> 
+
+  <label>Mobile Number</label><br>
+  <%= f.text_area :mobile_number %><br> 
+
+  <label>PHONE NUMBER</label><br>
+  <%= f.text_area :phone_number %><br> 
+
+  <label>POSTAL ADDRESS</label><br>
+  <%= f.text_area :postal_address %><br>
+
+  <%= f.submit %>
+<% end %>
+
+</div>

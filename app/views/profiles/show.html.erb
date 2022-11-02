@@ -1,0 +1,56 @@
+    <%= render "layouts/header" %>  
+
+<h3 class="center"> FOLLOWING ARE THE DETAILS OF PROFILE "<%= @profile.profile_name %>"</h3>
+
+<div class='main-centre tableFixHead'>
+    <table class="center">
+      <thead>
+        <tr>
+            <th>DESCRIPTION</th>
+            <th>VALUE</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td>PROFILE NAME:</td>
+            <td><%= @profile.profile_name %></td>
+          </tr>
+          <tr>
+            <td>COMPANY NAME:</td>
+            <td><%= @profile.company_name %></td>
+          </tr>
+          <tr>
+            <td>ADDRESS:</td>
+            <td><%= @profile.address %></td>
+          </tr>
+          <tr>
+            <td>ABN:</td>
+            <td><%= @profile.abn %></td>
+          </tr>   
+          <tr>
+            <td>EMAIL:</td>
+            <td><%= @profile.email %></td>
+          </tr>   
+          <tr>
+            <td>CONTACT NUMBER:</td>
+            <td><%= @profile.contact_number %></td>
+          </tr>
+          <tr>
+            <td>BANK DETAILS:</td>
+            <td><%= @profile.bank_details %></td>
+          </tr>   
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <br>
+
+<table class="center">
+      <thead>
+        <tr>
+            <th><%= link_to "DELETE", @profile, method: :delete, data: { confirm: "Really want to DELETE this profile #{@profile.to_s}?" } %></th>
+            <th><%= link_to "UPDATE", edit_profile_path(@profile) %></th>
+            <th><%= link_to "BACK", profiles_path %></th>
+        </tr>
+      </thead>
+</table>
